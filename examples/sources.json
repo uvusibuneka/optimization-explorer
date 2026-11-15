@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "notes": "Source availability does not imply a matching installed binary or complete visibility into proprietary backends. Pin compatible commits after environment discovery.",
+  "repositories": [
+    {"id":"pytorch","url":"https://github.com/pytorch/pytorch.git","tier":"core","role":"framework","ecosystems":["pytorch","keras"]},
+    {"id":"triton","url":"https://github.com/triton-lang/triton.git","tier":"core","role":"compiler","ecosystems":["pytorch"]},
+    {"id":"jax","url":"https://github.com/jax-ml/jax.git","tier":"core","role":"framework","ecosystems":["jax","keras"]},
+    {"id":"keras","url":"https://github.com/keras-team/keras.git","tier":"core","role":"framework","ecosystems":["keras"]},
+    {"id":"tensorflow","url":"https://github.com/tensorflow/tensorflow.git","tier":"core","role":"framework_compiler","ecosystems":["tensorflow","keras"]},
+    {"id":"xla","url":"https://github.com/openxla/xla.git","tier":"core","role":"compiler","ecosystems":["jax","tensorflow"]},
+    {"id":"stablehlo","url":"https://github.com/openxla/stablehlo.git","tier":"core","role":"ir","ecosystems":["jax","tensorflow"]},
+    {"id":"onednn","url":"https://github.com/uxlfoundation/oneDNN.git","tier":"core","role":"cpu_provider","ecosystems":["pytorch","tensorflow"]},
+    {"id":"cutlass","url":"https://github.com/NVIDIA/cutlass.git","tier":"core","role":"gpu_kernel_library","ecosystems":["pytorch","jax","tensorflow"]},
+    {"id":"cudnn_frontend","url":"https://github.com/NVIDIA/cudnn-frontend.git","tier":"core","role":"gpu_provider_frontend","ecosystems":["pytorch","jax","tensorflow"]},
+    {"id":"llvm","url":"https://github.com/llvm/llvm-project.git","tier":"extended","role":"compiler_infrastructure","ecosystems":["pytorch","jax","tensorflow"]},
+    {"id":"iree","url":"https://github.com/iree-org/iree.git","tier":"extended","role":"compiler_runtime","ecosystems":["optional"]},
+    {"id":"torch_xla","url":"https://github.com/pytorch/xla.git","tier":"extended","role":"pytorch_xla_bridge","ecosystems":["pytorch"]},
+    {"id":"torchao","url":"https://github.com/pytorch/ao.git","tier":"extended","role":"quantization","ecosystems":["pytorch"]},
+    {"id":"rocm_miopen","url":"https://github.com/ROCm/MIOpen.git","tier":"extended","role":"rocm_provider","ecosystems":["pytorch"]},
+    {"id":"rocm_composable_kernel","url":"https://github.com/ROCm/composable_kernel.git","tier":"extended","role":"rocm_kernel_library","ecosystems":["pytorch"]},
+    {"id":"rocm_hipblaslt","url":"https://github.com/ROCm/hipBLASLt.git","tier":"extended","role":"rocm_provider","ecosystems":["pytorch"]},
+    {"id":"mlir_hlo","url":"https://github.com/tensorflow/mlir-hlo.git","tier":"extended","role":"legacy_mlir_hlo","ecosystems":["jax","tensorflow"]}
+  ]
+}

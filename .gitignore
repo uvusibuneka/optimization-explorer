@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Local configuration and secrets
+.env
+.env.*
+*.local
+*.pem
+*.key
+
+# Cloned upstream source checkouts
+sources/
+
+# Run artifacts, databases and profiling output
+results/
+*.sqlite
+*.sqlite3
+*.db
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.bak
+*.nsys-rep
+*.ncu-rep
+*.log

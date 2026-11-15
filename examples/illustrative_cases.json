@@ -1,0 +1,27 @@
+{
+  "warning": "Synthetic examples only. Not verified against real framework source code.",
+  "examples": [
+    {
+      "layer_combination": "Conv -> BatchNorm",
+      "operator_pattern": "conv -> batch_norm",
+      "topology_constraints": "sequential",
+      "layer_hyperparameters": {"training": false},
+      "applicability_predicate": "not training and conv.out_channels == bn.num_features",
+      "optimization_outcome": "fold_bn_into_conv",
+      "alternative_outcome": "separate_conv_and_bn",
+      "expected_kernel_effect": "possible_change",
+      "evidence_status": "INFERRED"
+    },
+    {
+      "layer_combination": "MatMul -> Bias -> ReLU",
+      "operator_pattern": "matmul -> bias -> relu",
+      "topology_constraints": "sequential",
+      "layer_hyperparameters": {"enable_epilogue": true},
+      "applicability_predicate": "enable_epilogue and bias is not None",
+      "optimization_outcome": "matmul_bias_relu_epilogue",
+      "alternative_outcome": "separate_kernels",
+      "expected_kernel_effect": "possible_change",
+      "evidence_status": "INFERRED"
+    }
+  ]
+}

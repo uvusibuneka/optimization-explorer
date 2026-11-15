@@ -1,0 +1,34 @@
+[
+  {
+    "id": "conv_bn_fold",
+    "source_file": "fusion_sample.py",
+    "source_function": "example_fuse_conv_bn",
+    "predicate": "not training and conv.out_channels == bn.num_features",
+    "expected_optimization": true,
+    "source_outcome": "fold_bn_into_conv"
+  },
+  {
+    "id": "conv_bn_fallback",
+    "source_file": "fusion_sample.py",
+    "source_function": "example_fuse_conv_bn",
+    "predicate": "training or conv.out_channels != bn.num_features",
+    "expected_optimization": false,
+    "source_outcome": "separate_conv_and_bn"
+  },
+  {
+    "id": "matmul_epilogue",
+    "source_file": "fusion_sample.py",
+    "source_function": "example_epilogue",
+    "predicate": "enable_epilogue and bias is not None",
+    "expected_optimization": true,
+    "source_outcome": "matmul_bias_relu_epilogue"
+  },
+  {
+    "id": "matmul_fallback",
+    "source_file": "fusion_sample.py",
+    "source_function": "example_epilogue",
+    "predicate": "not enable_epilogue or bias is None",
+    "expected_optimization": false,
+    "source_outcome": "separate_kernels"
+  }
+]
